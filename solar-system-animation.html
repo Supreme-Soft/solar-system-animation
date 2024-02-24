@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar System Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #141414;
+            background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a');
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,13 +20,72 @@
             color: #fff;
         }
 
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #fff;
+            font-size: 24px;
+            margin-left: 22px;
+        }
+
+        .visit-us {
+            display: flex;
+            align-items: center;
+            padding-right: 18px;
+        }
+
+        .visit-us .icon-container:last-child {
+            margin-right: 0;
+        }
+
+        .icon-link {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-link:hover {
+            opacity: 0.7;
+        }
+
+        .fab {
+            margin-right: 5px;
+        }
+
+        .playstore-icon {
+            color: #34a853;
+        }
+
+        .youtube-icon {
+            color: #ff0000;
+        }
+
+        .github-icon {
+            color: #fff;
+        }
+
         .animation-container {
             position: relative;
             width: 300px;
             height: 300px;
-            margin: auto; /* Center the container on the screen */
+            margin: auto;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
+            top: 25%;
+            transform: translateY(-50%);
         }
 
         .ball {
@@ -79,6 +142,7 @@
             0% {
                 transform: rotate(0deg) translateY(150px) rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg) translateY(150px) rotate(-360deg);
             }
@@ -88,6 +152,7 @@
             0% {
                 box-shadow: 0 0 10px 5px #ffcc00;
             }
+
             100% {
                 box-shadow: 0 0 20px 10px #ffcc00;
             }
@@ -97,44 +162,194 @@
             animation-direction: reverse;
         }
 
-        /* Button styles */
-        .button {
-            background-color: #ffcc00;
-            color: #141414;
-            border: none;
-            border-radius: 10px;
-            padding: 15px 30px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            transition: background-color 0.3s ease-in-out;
+        .button-container {
             position: absolute;
-            bottom: 20px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
         }
 
-        .button:hover {
-            background-color: #ffffff;
+        .button-container:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .toggle-icon {
+            color: #ffcc00;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-icon:hover {
+            color: #ffffff;
+        }
+
+        .footer {
+            padding-top: 0 !important;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            background-color: #1f232842;
+            padding: 20px;
+            clear: both;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content p:first-child {
+            margin-bottom: 10px;
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .footer-link:hover {
+            color: #ff4081;
+            border-bottom-color: #ff4081;
+            cursor: pointer;
+        }
+
+        .icon-link {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-link:hover {
+            opacity: 0.7;
+        }
+
+        .playstore-icon {
+            color: #34a853;
+        }
+
+        .youtube-icon {
+            color: #ff0000;
+        }
+
+        .github-icon {
+            color: #fff;
+        }
+
+        ul.credit-links {
+            list-style-type: circle;
+        }
+
+        ul.credit-links li {
+            margin-bottom: 5px;
+        }
+
+        ul.credit-links li {
+            font-size: 14px;
+        }
+
+        .credits {
+            display: none;
         }
     </style>
 </head>
+
 <body>
+    <header>
+        <div class="header">
+            <h1>Solar System Animation</h1>
+        </div>
+        <div class="visit-us"> <span>
+                <span class="icon-container">
+                    <a href="https://play.google.com/store/apps/developer?id=Supreme+Soft"
+                        class="icon-link playstore-icon" target="_blank">
+                        <i class="fab fa-google-play fa-lg"></i>
+                    </a>
+                </span>
+
+                <span class="icon-container">
+                    <a href="https://www.youtube.com/@supreme-soft" class="icon-link youtube-icon" target="_blank">
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </a>
+                </span>
+                <span class="icon-container">
+                    <a href="https://github.com/Supreme-Soft" class="icon-link github-icon" target="_blank">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </header>
     <div class="animation-container" id="animationContainer">
         <div class="ball glowing" style="width: 30px; height: 30px;"></div>
         <div class="ball glowing" style="width: 50px; height: 50px;"></div>
         <div class="ball glowing" style="width: 40px; height: 40px;"></div>
         <div class="ball glowing" style="width: 45px; height: 45px;"></div>
     </div>
-    <button class="button" id="toggleAnimation">Toggle Orbit Direction</button>
+    <div class="button-container">
+        <i class="toggle-icon fas fa-sync-alt" onclick="toggleOrbitDirection()"></i>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Image credits go to the <a class="footer-link" onclick="openCredit()">creators</a>, provided under
+                Creative Commons licenses.</p>
 
+            <div class="credits" style="display: none;">
+                <ul class="credit-links">
+                    <li>Photo by <a class="footer-link"
+                            href="https://unsplash.com/@vincentiu?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+                            target="_blank">Vincentiu
+                            Solomon</a> on <a class="footer-link"
+                            href="https://unsplash.com/photos/silhouette-photo-of-mountain-during-night-time-ln5drpv_ImI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+                            target="_blank">Unsplash</a>
+                    </li>
+                </ul>
+            </div>
+            <p>&copy; 2024 <a class="footer-link" href="https://supreme-soft.blogspot.com">Supreme Soft</a>. All Rights
+                Reserved.</a></p>
+        </div>
+    </footer>
     <script>
         const animationContainer = document.getElementById('animationContainer');
-        const toggleAnimationBtn = document.getElementById('toggleAnimation');
 
-        toggleAnimationBtn.addEventListener('click', function () {
+        function toggleOrbitDirection() {
             animationContainer.classList.toggle('animation-reverse');
+        }
+    </script>
+    <script>
+        function openCredit(event) {
+            var credits = document.querySelector('.credits');
+            if (credits.style.display === 'none') {
+                credits.style.display = 'block';
+            } else {
+                credits.style.display = 'none';
+            }
+            event.stopPropagation();
+        }
+
+        document.addEventListener('click', function (event) {
+            var credits = document.querySelector('.credits');
+            var link = document.querySelector('.footer-link');
+            var isCreditsClicked = credits.contains(event.target) || event.target === link;
+            if (!isCreditsClicked) {
+                credits.style.display = 'none';
+            }
         });
+
     </script>
 </body>
+
 </html>

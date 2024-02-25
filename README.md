@@ -1,4 +1,4 @@
-# Solar System Animation
+# Solar System Animation Using CSS and JavaScript
 
 This project showcases a mesmerizing solar system animation created using CSS and JavaScript. The animation features four celestial bodies orbiting around a central point, creating a captivating visual experience.
 
